@@ -1,0 +1,32 @@
+.list {
+    display: block;
+    list-style:none;
+    padding: 10px;
+    border-bottom: 2px solid black;
+    
+}
+
+.amount {
+    margin-left: 50px;
+    margin-right: 50px;
+    
+}
+
+.description {
+    margin-left: 120px;
+}
+
+.category {
+    margin-left: 90px;
+}
+
+.buttons {
+    float: right;
+    
+    margin-right: 100px;
+}
+
+
+.fragment {
+    text-align: center;
+}

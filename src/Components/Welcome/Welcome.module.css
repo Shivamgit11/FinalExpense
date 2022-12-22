@@ -1,0 +1,58 @@
+.section {
+    border-bottom: 2px solid black;
+    display: flex;
+}
+
+.h1 {
+    font-style: italic;
+    font-size: large;
+}
+
+.p {
+    padding-left: 800px;
+    font-style: italic;
+    font-size: small;
+}
+
+.button {
+    color: blue;
+    border: none;
+    font-style: italic;
+    background-color: white;
+}
+
+.logout {
+    padding: 0px;
+    margin-left: 100px;
+    background-color: rgb(223, 134, 134);
+    width: 100px;
+    box-shadow: black;
+    border-style: double;
+}
+
+.verify {
+    display: flex;
+    float: right;
+    
+}
+
+.verifybutton {
+    color: purple;
+    background-color: transparent;
+    border: none;
+}
+
+.img {
+    width: 20cm;
+}
+
+.buttone {
+    margin-left: 4.5cm;
+    background-color: aqua;
+    width: 10cm;
+    height: 1cm;
+}
+
+.buttone:hover {
+    background-color: yellow;
+}
