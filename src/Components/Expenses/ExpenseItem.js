@@ -2,39 +2,43 @@ import { useDispatch } from "react-redux";
 import classes from "./ExpenseItem.module.css";
 import { expenseActions } from "../../store/expense-slice";
 import { Fragment } from "react";
-import ShowExpense from "./ShowExpense";
+
 
 const ExpenseItem = (props) => {
   const { amount, description, category, id } = props.item;
   let email = localStorage.getItem("email").replace(".", "").replace("@", "");
 
   const dispatch = useDispatch();
+  
 
   const deleteExpenseHandler = () => {
-    console.log("inside delete",id);
+    console.log("inside delete", id);
     fetch(
       `https://refreshexpense-default-rtdb.firebaseio.com/${email}/${id}.json`,
       {
         method: "DELETE",
       }
     );
-    <ShowExpense id={id} />;
+
+    console.log("Deleted Done");
 
     dispatch(expenseActions.removeExpense(id));
   };
 
   const editExpenseHandler = () => {
-    document.getElementById("amount").value = amount;
-    document.getElementById("description").value = description;
-    document.getElementById("category").value = category;
     fetch(
       `https://refreshexpense-default-rtdb.firebaseio.com/${email}/${id}.json`,
       {
         method: "DELETE",
       }
     );
+    document.getElementById("amount").value = amount;
+    document.getElementById("description").value = description;
+    document.getElementById("category").value = category;
+    dispatch(expenseActions.removeExpense(id));
+    
 
-    <ShowExpense id={id} />;
+    // <ShowExpense id={id} />;
   };
 
   return (

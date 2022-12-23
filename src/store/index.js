@@ -7,6 +7,7 @@ const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
     expense: expenseSlice.reducer,
+
     theme: themeReducer.reducer,
   },
 });

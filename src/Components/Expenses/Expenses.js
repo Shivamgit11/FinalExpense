@@ -16,7 +16,7 @@ const Expenses = (props) => {
   const history = useHistory();
   const totalPrice = useSelector((state) => state.expense.totalAmount);
   const darkMode = useSelector((state) => state.theme.darkMode);
-
+  let ID ="";
   const [premium, setPremium] = useState(false);
   const [download, setDownload] = useState(false);
 
@@ -98,6 +98,7 @@ const Expenses = (props) => {
         }
       );
       console.log("checking fetch data",data);
+      ID = data.name;
 
       dispatch(
         expenseActions.addExpense({
@@ -190,7 +191,8 @@ const Expenses = (props) => {
         </div>
       </span>
 
-      <ShowExpense id={Math.random()} />
+
+      <ShowExpense id={ID} />
       {totalPrice > 10000 && (
         <h2 className={classes.h1}>
           {" "}
