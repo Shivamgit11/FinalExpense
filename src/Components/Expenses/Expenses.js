@@ -134,8 +134,8 @@ const Expenses = (props) => {
           Go to home page
         </button>
       </div>
-      {download && <h3 className={classes.h1}>Premium Features Activated</h3>}
-      {download && (
+      {totalPrice > 10000 && download && <h3 className={classes.h1}>Premium Features Activated</h3>}
+      {totalPrice > 10000 && download && (
         <button
           className={`btn ${darkMode ? "btn-dark" : "btn-light"}`}
           onClick={onClick}
@@ -200,7 +200,7 @@ const Expenses = (props) => {
         </h2>
       )}
       <div>
-        {premium && !prem && (
+        {totalPrice > 10000 && premium && !prem && (
           <button className={classes.premium} onClick={premiumHandler}>
             Activate premium
           </button>
