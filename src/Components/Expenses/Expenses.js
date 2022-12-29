@@ -23,6 +23,7 @@ const Expenses = (props) => {
   let email = localStorage.getItem("email").replace(".", "").replace("@", "");
 
   console.log(email);
+  
 
   const allExpenses = useSelector((state) => state.expense.expenses);
   function makeCSV(rows) {
@@ -45,6 +46,12 @@ const Expenses = (props) => {
     a1.href = URL.createObjectURL(blob);
   }, [allExpenses]);
 
+  if (totalPrice < 10000) {
+    
+    // setPremium(true);
+    localStorage.removeItem("premium");
+  } 
+
   const onClick = () => {
     if (darkMode) {
       dispatch(themeActions.changeTheme("LIGHTMODE"));
@@ -63,6 +70,9 @@ const Expenses = (props) => {
     if (prem) {
       setPremium(true);
       setDownload(true);
+    }else{
+      setPremium(false);
+      setDownload(false);
     }
   }, [prem]);
 
@@ -110,17 +120,18 @@ const Expenses = (props) => {
       );
     });
 
-    if (totalPrice > 10000) {
-      console.log("Premium Activated");
-      setPremium(true);
-    }
+    // if (totalPrice > 10000) {
+    //   console.log("Premium Activated");
+    //   setPremium(true);
+    // }
   };
 
-  useEffect(() => {
-    if (totalPrice > 10000) {
-      setPremium(true);
-    } else localStorage.removeItem("premium");
-  }, [totalPrice]);
+  // useEffect(() => {
+  //   if (totalPrice < 10000) {
+  //     // setPremium(true);
+  //     localStorage.removeItem("premium");
+  //   } 
+  // }, []);
 
   const homeHandler = () => {
     history.replace("./welcome");
@@ -134,8 +145,8 @@ const Expenses = (props) => {
           Go to home page
         </button>
       </div>
-      {totalPrice > 10000 && download && <h3 className={classes.h1}>Premium Features Activated</h3>}
-      {totalPrice > 10000 && download && (
+      {totalPrice > 10000 && download && premium && <h3 className={classes.h1}>Premium Features Activated</h3>}
+      {totalPrice > 10000 && download && premium && (
         <button
           className={`btn ${darkMode ? "btn-dark" : "btn-light"}`}
           onClick={onClick}
@@ -193,21 +204,22 @@ const Expenses = (props) => {
 
 
       <ShowExpense id={ID} />
-      {totalPrice > 10000 && (
+      {totalPrice > 10000   && !prem && (
         <h2 className={classes.h1}>
           {" "}
           Total amount is more than 10000 you are eligible for premium{" "}
         </h2>
       )}
       <div>
-        {totalPrice > 10000 && premium && !prem && (
+        {totalPrice > 10000 && !prem && (
+          
           <button className={classes.premium} onClick={premiumHandler}>
             Activate premium
           </button>
         )}
       </div>
       <div className={classes.h1}>
-        {download && (
+        { totalPrice > 10000 && download && (
           <a id="a1" download="expenses.csv">
             {/* Download Expenses (.csv file){" "} */}
             Download Expense
