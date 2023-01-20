@@ -16,7 +16,7 @@ const Profile = () => {
   console.log("In local storage", token)
 
   fetch(
-    "https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyCm1BvBfb655cubTMVdda30otMpIuOclhk",
+    "https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyB3jjj3ZXvEWWT_PnHHqBcDZZkKF5ean0g",
     {
       method: "POST",
       body: JSON.stringify({
@@ -63,7 +63,7 @@ const Profile = () => {
     console.log(authCtx.token)
 
     fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyCm1BvBfb655cubTMVdda30otMpIuOclhk",
+      "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyB3jjj3ZXvEWWT_PnHHqBcDZZkKF5ean0g",
       {
         method: "POST",
         body: stringify({

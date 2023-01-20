@@ -14,7 +14,7 @@ const ExpenseItem = (props) => {
   const deleteExpenseHandler = () => {
     console.log("inside delete", id);
     fetch(
-      `https://refreshexpense-default-rtdb.firebaseio.com/${email}/${id}.json`,
+      `https://expense-7cfac-default-rtdb.firebaseio.com/${email}/${id}.json`,
       {
         method: "DELETE",
       }
@@ -27,7 +27,7 @@ const ExpenseItem = (props) => {
 
   const editExpenseHandler = () => {
     fetch(
-      `https://refreshexpense-default-rtdb.firebaseio.com/${email}/${id}.json`,
+      `https://expense-7cfac-default-rtdb.firebaseio.com/${email}/${id}.json`,
       {
         method: "DELETE",
       }

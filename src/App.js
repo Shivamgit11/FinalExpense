@@ -21,7 +21,7 @@ function App() {
     if (!email) return;
     console.log("before fetch", email);
     fetch(
-      `https://refreshexpense-default-rtdb.firebaseio.com/${email}.json`,
+      `https://expense-7cfac-default-rtdb.firebaseio.com/${email}.json`,
       {
         method: "GET",
       }

@@ -89,7 +89,7 @@ const Expenses = (props) => {
       category: enteredCategory,
     };
 
-    fetch(`https://refreshexpense-default-rtdb.firebaseio.com/${email}.json`, {
+    fetch(`https://expense-7cfac-default-rtdb.firebaseio.com/${email}.json`, {
       method: "POST",
       body: JSON.stringify({
         ...obj,
@@ -98,7 +98,7 @@ const Expenses = (props) => {
       const data = await res.json();
 
       fetch(
-        `https://refreshexpense-default-rtdb.firebaseio.com/${email}/${data.name}.json`,
+        `https://expense-7cfac-default-rtdb.firebaseio.com/${email}/${data.name}.json`,
         {
           method: "PATCH",
           body: JSON.stringify({
@@ -203,7 +203,7 @@ const Expenses = (props) => {
       </span>
 
 
-      <ShowExpense id={ID} />
+      <ShowExpense />
       {totalPrice > 10000   && !prem && (
         <h2 className={classes.h1}>
           {" "}
